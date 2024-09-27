@@ -347,8 +347,8 @@ std::unique_ptr<IAllocator> CreateCUDAPinnedAllocator(const char* name) {
   return g_host->CreateCUDAPinnedAllocator(name);
 }
 
-std::unique_ptr<IDataTransfer> CreateGPUDataTransfer() {
-  return g_host->CreateGPUDataTransfer();
+std::unique_ptr<IDataTransfer> CreateGPUDataTransferCUDA() {
+  return g_host->CreateGPUDataTransferCUDA();
 }
 #endif
 

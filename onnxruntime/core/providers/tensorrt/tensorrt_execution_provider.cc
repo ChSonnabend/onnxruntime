@@ -1848,7 +1848,7 @@ std::vector<AllocatorPtr> TensorrtExecutionProvider::CreatePreferredAllocators()
 }
 
 std::unique_ptr<IDataTransfer> TensorrtExecutionProvider::GetDataTransfer() const {
-  return onnxruntime::CreateGPUDataTransfer();
+  return onnxruntime::CreateGPUDataTransferCUDA();
 }
 
 Status TensorrtExecutionProvider::OnRunStart(const onnxruntime::RunOptions& /*run_options*/) {

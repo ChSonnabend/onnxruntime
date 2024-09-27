@@ -368,10 +368,10 @@ void RunModelWithBindingMatMul(InferenceSession& session_object,
                                                                   shape,
                                                                   cpu_allocator);
 #ifdef USE_CUDA
-    st = GetProviderInfo_CUDA().CreateGPUDataTransfer()->CopyTensor(rtensor, *cpu_tensor.get());
+    st = GetProviderInfo_CUDA().CreateGPUDataTransferCUDA()->CopyTensor(rtensor, *cpu_tensor.get());
 #endif
 #ifdef USE_ROCM
-    st = GetProviderInfo_ROCM().CreateGPUDataTransfer()->CopyTensor(rtensor, *cpu_tensor.get());
+    st = GetProviderInfo_ROCM().CreateGPUDataTransferROCM()->CopyTensor(rtensor, *cpu_tensor.get());
 #endif
     ASSERT_TRUE(st.IsOK());
     OrtValue ml_value;

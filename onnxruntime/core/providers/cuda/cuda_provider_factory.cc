@@ -87,7 +87,7 @@ struct ProviderInfo_CUDA_Impl final : ProviderInfo_CUDA {
     return std::make_unique<CUDAPinnedAllocator>(name);
   }
 
-  std::unique_ptr<IDataTransfer> CreateGPUDataTransfer() override {
+  std::unique_ptr<IDataTransfer> CreateGPUDataTransferCUDA() override {
     return std::make_unique<GPUDataTransfer>();
   }
 

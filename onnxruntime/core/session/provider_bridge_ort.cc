@@ -236,7 +236,7 @@ struct ProviderHostImpl : ProviderHost {
 #ifdef USE_CUDA
   std::unique_ptr<IAllocator> CreateCUDAAllocator(int16_t device_id, const char* name) override { return GetProviderInfo_CUDA().CreateCUDAAllocator(device_id, name); }
   std::unique_ptr<IAllocator> CreateCUDAPinnedAllocator(const char* name) override { return GetProviderInfo_CUDA().CreateCUDAPinnedAllocator(name); }
-  std::unique_ptr<IDataTransfer> CreateGPUDataTransfer() override { return GetProviderInfo_CUDA().CreateGPUDataTransfer(); }
+  std::unique_ptr<IDataTransfer> CreateGPUDataTransferCUDA() override { return GetProviderInfo_CUDA().CreateGPUDataTransferCUDA(); }
 
   void cuda__Impl_Cast(void* stream, const int64_t* input_data, int32_t* output_data, size_t count) override { return GetProviderInfo_CUDA().cuda__Impl_Cast(stream, input_data, output_data, count); }
   void cuda__Impl_Cast(void* stream, const int32_t* input_data, int64_t* output_data, size_t count) override { return GetProviderInfo_CUDA().cuda__Impl_Cast(stream, input_data, output_data, count); }
@@ -256,7 +256,7 @@ struct ProviderHostImpl : ProviderHost {
 #ifdef USE_ROCM
   std::unique_ptr<IAllocator> CreateROCMAllocator(int16_t device_id, const char* name) override { return GetProviderInfo_ROCM().CreateROCMAllocator(device_id, name); }
   std::unique_ptr<IAllocator> CreateROCMPinnedAllocator(const char* name) override { return GetProviderInfo_ROCM().CreateROCMPinnedAllocator(name); }
-  std::unique_ptr<IDataTransfer> CreateGPUDataTransfer() override { return GetProviderInfo_ROCM().CreateGPUDataTransfer(); }
+  std::unique_ptr<IDataTransfer> CreateGPUDataTransferROCM() override { return GetProviderInfo_ROCM().CreateGPUDataTransferROCM(); }
 
   void rocm__Impl_Cast(void* stream, const int64_t* input_data, int32_t* output_data, size_t count) override { return GetProviderInfo_ROCM().rocm__Impl_Cast(stream, input_data, output_data, count); }
   void rocm__Impl_Cast(void* stream, const int32_t* input_data, int64_t* output_data, size_t count) override { return GetProviderInfo_ROCM().rocm__Impl_Cast(stream, input_data, output_data, count); }
