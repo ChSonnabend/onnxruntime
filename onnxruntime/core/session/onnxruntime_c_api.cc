@@ -292,7 +292,7 @@ std::unique_ptr<IDataTransfer> GetDataTransfer(const OrtDevice& src_device, cons
 #ifdef USE_CUDA
   if (src_device.Type() == OrtDevice::GPU || dst_device.Type() == OrtDevice::GPU) {
     if (auto* provider_info = TryGetProviderInfo_CUDA()) {
-      return provider_info->CreateGPUDataTransfer();
+      return provider_info->CreateGPUDataTransferCUDA();
     }
   }
 #endif

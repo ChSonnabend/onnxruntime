@@ -82,7 +82,7 @@ struct ProviderInfo_ROCM_Impl final : ProviderInfo_ROCM {
     return std::make_unique<ROCMPinnedAllocator>(name);
   }
 
-  std::unique_ptr<IDataTransfer> CreateGPUDataTransfer() override {
+  std::unique_ptr<IDataTransfer> CreateGPUDataTransferROCM() override {
     return std::make_unique<GPUDataTransfer>();
   }
 

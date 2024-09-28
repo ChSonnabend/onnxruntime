@@ -288,7 +288,8 @@ std::unique_ptr<IAllocator> CreateMIGraphXPinnedAllocator(int16_t device_id, con
 std::unique_ptr<IAllocator> CreateROCMAllocator(int16_t device_id, const char* name);
 std::unique_ptr<IAllocator> CreateROCMPinnedAllocator(const char* name);
 
-std::unique_ptr<IDataTransfer> CreateGPUDataTransfer();
+std::unique_ptr<IDataTransfer> CreateGPUDataTransferCUDA();
+std::unique_ptr<IDataTransfer> CreateGPUDataTransferROCM();
 
 std::unordered_set<NodeIndex> GetCpuPreferredNodes(const onnxruntime::GraphViewer& graph,
                                                    const IExecutionProvider::IKernelLookup& kernel_lookup,

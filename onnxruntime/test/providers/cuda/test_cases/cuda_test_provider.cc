@@ -51,7 +51,7 @@ struct ProviderInfo_CUDA_TestImpl : ProviderInfo_CUDA {
     return nullptr;
   }
 
-  std::unique_ptr<IDataTransfer> CreateGPUDataTransfer() override {
+  std::unique_ptr<IDataTransfer> CreateGPUDataTransferCUDA() override {
     return nullptr;
   }
 
