@@ -1300,7 +1300,7 @@ Status MIGraphXExecutionProvider::Compile(const std::vector<FusedNodeAndGraph>& 
           LOGS_DEFAULT(VERBOSE) << "No Input shapes mismatch detected. Recompiling" << std::endl;
 #ifndef ENABLE_TRAINING_CORE
 #if HIP_VERSION_MAJOR > 6 || (HIP_VERSION_MAJOR == 6 && HIP_VERSION_MINOR >= 2)
-          cmp_options.set_external_data_path(load_model_path_env.has_parent_path() ? load_model_path_env.parent_path().string() : std::filesystem::current_path().string());
+          cmp_options.set_external_data_path(graph_body_viewer.ModelPath().has_parent_path() ? graph_body_viewer.ModelPath().parent_path().string() : std::filesystem::current_path().string());
 #endif
 #endif
           prog = migraphx::parse_onnx_buffer(onnx_string, cmp_options);
